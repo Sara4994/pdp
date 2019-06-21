@@ -8,14 +8,21 @@ import ProductInformationProductLookup from '../../Molecules/ProductInformationP
 import ProductInformationProductName from '../../Molecules/ProductInformationProductName/ProductInformationProductName';
 import ProductInformationProductPrice from '../../Molecules/ProductInformationProductPrice/ProductInformationProductPrice';
 import ProductInformationProductBroadView from '../../Molecules/ProductInformationProductBroadView/ProductInformationProductBroadView';
+import ProductInformationBestOffers from '../../Molecules/ProductInformationBestOffers/ProductInformationBestOffers';
+import ProductInformationProductDetails from '../../Molecules/ProductInformationProductDetails/ProductInformationProductDetails';
+import PDPProductSuggestions from '../../Organism/PDPProductSuggestions/PDPProductSuggestions';
 
+export const ProductContext = React.createContext({})
+const ProductContextProvider = ProductContext.Provider;
 
 const ProductDescriptionPage = (props) => {
     const[currentImage, changeImage] = useState(0);
     
     useEffect(() => {
         props.fetchData();
+
     }, []);
+    
     const { data: { products = [] } = {} } = props;
     return (
 
@@ -37,9 +44,22 @@ const ProductDescriptionPage = (props) => {
                         <ProductInformationSizeSwatch text={product.sizes} />
                         <ProductInformationAddToCart />
                         <ProductInformationWhishlist />
+                        <ProductInformationBestOffers offers={product.offers}/>
+                        <ProductInformationProductDetails details={product.productDetails} />
                     </div>
                 </>    
                 )}
+            </div>
+            <div className="row">
+                {products.map(product => (
+                    product.category === 'Tshirts' ?
+                    <ProductContextProvider value={{image: product.searchImage, name: product.product, price: product.price}}>
+                    <PDPProductSuggestions /> 
+                    </ProductContextProvider>
+                    : null
+                ))}
+                
+                {/* <ProductSuggestionsProductTile /> */}
             </div>
         </div>
     )
