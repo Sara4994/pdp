@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaStar } from 'react-icons/fa';
+// import { FaStar } from 'react-icons/fa';
 import { Border,Wrapper, Title, Description } from './ProductInformationProductName.style';
 
 const ProductInformationProductName = (props) => {
@@ -9,7 +9,7 @@ const ProductInformationProductName = (props) => {
             <Title>{props.product}</Title>
             <Description>{props.productName}</Description>
             <Wrapper>
-                <div>{props.rating}<span><i className="icon-star"><FaStar /></i></span></div>
+                <div>{props.rating}<span><i className="icon-star"></i></span></div>
             </Wrapper>
         
         </div>

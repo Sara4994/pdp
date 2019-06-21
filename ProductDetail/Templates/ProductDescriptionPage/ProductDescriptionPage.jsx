@@ -15,7 +15,6 @@ const ProductDescriptionPage = (props) => {
     
     useEffect(() => {
         props.fetchData();
-
     }, []);
     const { data: { products = [] } = {} } = props;
     return (
