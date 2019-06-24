@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Button from '../../Atoms/Button/Button';
+import Accordion from '@lowes/accordion';
 import { ProductDetails } from '../../locales/en-us';
-import { ProductDetailStyle } from './ProductInformationProductDetails.style';
+import { ProductDetailStyle, DetailsTitle } from './ProductInformationProductDetails.style';
 import { ThemeProvider } from 'styled-components';
 import { Scaffold } from "@lowes/helix-global-css";
 import Icon from '@lowes/icon';
@@ -13,7 +13,20 @@ const ProductInformationProductDetails = (props) => {
     }
     return (
         <ThemeProvider theme={{ scaffold: Scaffold }}>
-            <ProductDetailStyle>
+            <>
+                <Accordion title={ProductDetails}>
+
+                    {props.details.map((detail, index) => (
+                        <div key={index}>
+                            <p>{detail.details}</p>
+                            <DetailsTitle>{detail.materialText}</DetailsTitle>
+                            <p>{detail.materialDetails}</p>
+                        </div>
+                    ))}
+                </Accordion>
+
+            </>
+            {/* <ProductDetailStyle>
                 <Button type="accordion" text={ProductDetails} click={clickHandler}>
                     {open ?
                         <span><Icon name="minus-thick" size="iconSize1x" color="themeSenary" /></span>
@@ -35,7 +48,7 @@ const ProductInformationProductDetails = (props) => {
                     :
                     null
                 }
-            </ProductDetailStyle>
+            </ProductDetailStyle> */}
         </ThemeProvider>
     )
 }

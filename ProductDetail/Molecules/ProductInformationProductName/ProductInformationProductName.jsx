@@ -4,8 +4,8 @@ import { Border,Wrapper, Title, Description } from './ProductInformationProductN
 
 const ProductInformationProductName = (props) => {
     return (
-        <Border className="mb-20">
-        <div className="mb-10  Bottomborder">
+        <Border className="mb-20 ">
+        <div className="mb-10 Bottomborder">
             <Title>{props.product}</Title>
             <Description>{props.productName}</Description>
             <Wrapper>

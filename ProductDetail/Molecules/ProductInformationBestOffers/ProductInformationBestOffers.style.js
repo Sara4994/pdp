@@ -9,3 +9,6 @@ export const BestOfferStyles = styled.div`
         }
     }
 `
+export const OffersTitle = styled.p`
+        font-weight: bold;
+`

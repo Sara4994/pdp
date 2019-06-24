@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../Atoms/Button/Button';
+import Button from '@lowes/button';
 import { AddToCart } from '../../locales/en-us'
 import { ThemeProvider } from 'styled-components';
 import { Scaffold } from "@lowes/helix-global-css";
@@ -8,12 +8,12 @@ import Icon from '@lowes/icon';
 const ProductInformationAddToCart = () => {
 
     return (
-        <ThemeProvider theme = {{ scaffold: Scaffold }}>
-            <Button text={AddToCart} type="primary" >
+        <ThemeProvider theme={{ scaffold: Scaffold }}>
+            <Button secondary > {AddToCart}
                 <span><Icon name="cart-add" size="iconSize1x" color="lowesWhite" /></span>
-            </Button>        
-      </ThemeProvider>        
-    ) 
+            </Button>
+        </ThemeProvider>
+    )
 }
 
 export default ProductInformationAddToCart;

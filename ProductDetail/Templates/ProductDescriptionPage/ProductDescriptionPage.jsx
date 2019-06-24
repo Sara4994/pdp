@@ -64,24 +64,17 @@ const ProductDescriptionPage = (props) => {
         </div>
     )
 }
-
 const checkRender = () => {
-
 }
-
 const mapStateToProps = (state) => {
     return {
         data: state.globalapiReducer
     }
-
 }
-
 const mapDispatchToProps = (dispatch) => ({
     fetchData: () => getTextData(dispatch)
 })
-
 const ProductDescriptionPageData = connect(ProductDescriptionPage, checkRender,
     mapStateToProps,
     mapDispatchToProps)
-
 export default ProductDescriptionPageData;

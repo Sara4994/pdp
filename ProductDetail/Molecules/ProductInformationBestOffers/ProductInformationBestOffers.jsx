@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BestOffers } from '../../locales/en-us';
-import Button from '../../Atoms/Button/Button';
-import { BestOfferStyles } from './ProductInformationBestOffers.style';
+import Accordion from '@lowes/accordion';
+import { BestOfferStyles, OffersTitle} from './ProductInformationBestOffers.style';
 import { ThemeProvider } from 'styled-components';
 import { Scaffold } from "@lowes/helix-global-css";
 import Icon from '@lowes/icon';
@@ -13,7 +13,16 @@ const ProductInformationBestOffers = (props) => {
     }
     return (
         <ThemeProvider theme={{ scaffold: Scaffold }}>
-            <BestOfferStyles>
+                 <Accordion title={BestOffers}>
+                 {props.offers.map((offer,index) => (
+                        <div key={index}>
+                            <OffersTitle> {offer.offersTitle} </OffersTitle>
+                            <p>{offer.offersDesc}</p>
+                        </div>
+                    ))}
+
+                 </Accordion>
+            {/* <BestOfferStyles>
                 <Button type="accordion" text={BestOffers} click={clickHandler}>
                     {open ?
                         <span><Icon name="minus-thick" size="iconSize1x" color="themeSenary" /></span>
@@ -34,7 +43,7 @@ const ProductInformationBestOffers = (props) => {
                      :
                     null
                 }
-            </BestOfferStyles>
+            </BestOfferStyles> */}
         </ThemeProvider>
 
     )

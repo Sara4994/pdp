@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../Atoms/Button/Button';
+import Button from '@lowes/button';
 import { Whishlist } from '../../locales/en-us';
 // import { IoIosBookmark } from 'react-icons/io';
 import { ThemeProvider } from 'styled-components';
@@ -9,10 +9,9 @@ import Icon from '@lowes/icon';
 
 const ProductInformationWhishlist = () => {
     return (
-
         <ThemeProvider theme={{ scaffold: Scaffold }}>
-            <Button text={Whishlist} >
-             <span><Icon name="heart-outline" size="iconSize1x" color="themeSenary" /></span>
+            <Button primary> {Whishlist}
+                <span><Icon name="heart-outline" size="iconSize1x" color="themeSenary" /></span>
             </Button>
         </ThemeProvider>
     )
