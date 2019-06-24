@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from '@lowes/helix-state';
 import { getTextData } from '../../../../actions/dataActions'
 import ProductInformationAddToCart from '../../Molecules/ProductInformationAddToCart/ProductInformationAddToCart';
@@ -16,26 +16,24 @@ export const ProductContext = React.createContext({})
 const ProductContextProvider = ProductContext.Provider;
 
 const ProductDescriptionPage = (props) => {
-    const[currentImage, changeImage] = useState(0);
-    
+    const [currentImage, changeImage] = useState(0);
+
     useEffect(() => {
         props.fetchData();
 
     }, []);
-    
+
     const { data: { products = [] } = {} } = props;
     return (
-
-        <div className="container medium">
-            <div className="row">
-                {products.map((product, index) =>
-                <>
+        <>
+            {products.map((product, index) =>
+                <div className="row">
                     <div className="col-md-8-12" >
-                            <ProductInformationProductBroadView image={product.images[currentImage].src} key={index} />
+                        <ProductInformationProductBroadView image={product.images[currentImage].src} key={index} />
                         <div className="row" >
-                        {product.images.map((image, index) => (
-                            <ProductInformationProductLookup image={image} click={() => changeImage(index)} key={index} />
-                        ))}
+                            {product.images.map((image, index) => (
+                                <ProductInformationProductLookup image={image} click={() => changeImage(index)} key={index} />
+                            ))}
                         </div>
                     </div>
                     <div className="col-md-4-12">
@@ -44,24 +42,24 @@ const ProductDescriptionPage = (props) => {
                         <ProductInformationSizeSwatch text={product.sizes} />
                         <ProductInformationAddToCart />
                         <ProductInformationWhishlist />
-                        <ProductInformationBestOffers offers={product.offers}/>
+                        <ProductInformationBestOffers offers={product.offers} />
                         <ProductInformationProductDetails details={product.productDetails} />
                     </div>
-                </>    
-                )}
-            </div>
+
+                </div>
+            )}
             <div className="row">
                 {products.map(product => (
                     product.category === 'Tshirts' ?
-                    <ProductContextProvider value={{image: product.searchImage, name: product.product, price: product.price}}>
-                    <PDPProductSuggestions /> 
-                    </ProductContextProvider>
-                    : null
+                        <ProductContextProvider value={{ image: product.searchImage, name: product.product, price: product.price }}>
+                            <PDPProductSuggestions />
+                        </ProductContextProvider>
+                        : null
                 ))}
-                
+
                 {/* <ProductSuggestionsProductTile /> */}
             </div>
-        </div>
+        </>
     )
 }
 const checkRender = () => {
