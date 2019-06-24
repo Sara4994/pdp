@@ -9,7 +9,7 @@ const ProductInformationAddToCart = () => {
 
     return (
         <ThemeProvider theme={{ scaffold: Scaffold }}>
-            <Button secondary > {AddToCart}
+            <Button primary > {AddToCart}
                 <span><Icon name="cart-add" size="iconSize1x" color="lowesWhite" /></span>
             </Button>
         </ThemeProvider>

@@ -10,7 +10,7 @@ import Icon from '@lowes/icon';
 const ProductInformationWhishlist = () => {
     return (
         <ThemeProvider theme={{ scaffold: Scaffold }}>
-            <Button primary> {Whishlist}
+            <Button secondary> {Whishlist}
                 <span><Icon name="heart-outline" size="iconSize1x" color="themeSenary" /></span>
             </Button>
         </ThemeProvider>

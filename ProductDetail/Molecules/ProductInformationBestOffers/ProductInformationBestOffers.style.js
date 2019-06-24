@@ -12,3 +12,11 @@ export const BestOfferStyles = styled.div`
 export const OffersTitle = styled.p`
         font-weight: bold;
 `
+
+export const AccordionOuter = styled.div `
+    .test {
+        div {
+            padding: 0;
+        }
+    }
+`

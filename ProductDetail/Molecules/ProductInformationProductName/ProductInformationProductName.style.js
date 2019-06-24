@@ -21,7 +21,6 @@ export const Wrapper = styled.div `
 `;
 
 export const Title = styled.h4`
-font-family: whitney;
 color: #282C3F;
 margin-top: 0px;
 margin-bottom: 0px;

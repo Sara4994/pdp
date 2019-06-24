@@ -5,7 +5,7 @@ export const ProductSuggestions = styled.div`
         margin-top: 20px;
         display: flex;
         flex-direction: row;
-        
     }
+    width: 25%;
 
 `

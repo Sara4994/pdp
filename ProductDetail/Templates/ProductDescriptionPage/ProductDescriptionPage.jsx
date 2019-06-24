@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from '@lowes/helix-state';
 import { getTextData } from '../../../../actions/dataActions'
+import { ProductDescriptionPageStyle, CarouselStyling } from './ProductDescriptionPage.style';
 import ProductInformationAddToCart from '../../Molecules/ProductInformationAddToCart/ProductInformationAddToCart';
 import ProductInformationWhishlist from '../../Molecules/ProductInformationWhishlist/ProductInformationWhishlist';
 import ProductInformationSizeSwatch from '../../Molecules/ProductInformationSizeSwatch/ProductInformationSizeSwatch';
@@ -11,6 +12,7 @@ import ProductInformationProductBroadView from '../../Molecules/ProductInformati
 import ProductInformationBestOffers from '../../Molecules/ProductInformationBestOffers/ProductInformationBestOffers';
 import ProductInformationProductDetails from '../../Molecules/ProductInformationProductDetails/ProductInformationProductDetails';
 import PDPProductSuggestions from '../../Organism/PDPProductSuggestions/PDPProductSuggestions';
+import Button from '@lowes/button';
 
 export const ProductContext = React.createContext({})
 const ProductContextProvider = ProductContext.Provider;
@@ -26,8 +28,10 @@ const ProductDescriptionPage = (props) => {
     const { data: { products = [] } = {} } = props;
     return (
         <>
+        
             {products.map((product, index) =>
-                <div className="row">
+            <ProductDescriptionPageStyle>
+                <div className="row pdp-detail">
                     <div className="col-md-8-12" >
                         <ProductInformationProductBroadView image={product.images[currentImage].src} key={index} />
                         <div className="row" >
@@ -45,10 +49,12 @@ const ProductDescriptionPage = (props) => {
                         <ProductInformationBestOffers offers={product.offers} />
                         <ProductInformationProductDetails details={product.productDetails} />
                     </div>
-
                 </div>
+            </ProductDescriptionPageStyle>
             )}
-            <div className="row">
+            <CarouselStyling> 
+            <div className="row carousel-container">
+            <Button className="left-arrow"> {'<'} </Button>
                 {products.map(product => (
                     product.category === 'Tshirts' ?
                         <ProductContextProvider value={{ image: product.searchImage, name: product.product, price: product.price }}>
@@ -56,9 +62,10 @@ const ProductDescriptionPage = (props) => {
                         </ProductContextProvider>
                         : null
                 ))}
-
+                  <Button className="right-arrow"> {'>'} </Button>
                 {/* <ProductSuggestionsProductTile /> */}
             </div>
+            </CarouselStyling>
         </>
     )
 }
