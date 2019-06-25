@@ -7,7 +7,7 @@ export const Border = styled.div`
     }
 `;
 
-export const Wrapper = styled.div `
+export const Wrapper = styled.div`
     border: 0.25px solid #d4d5d9;
     padding: 5px 10px;
     width: auto;

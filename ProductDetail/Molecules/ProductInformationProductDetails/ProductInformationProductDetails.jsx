@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import Accordion from '@lowes/accordion';
-import { ProductDetails } from '../../locales/en-us';
-import { ProductDetailStyle, DetailsTitle } from './ProductInformationProductDetails.style';
 import { ThemeProvider } from 'styled-components';
-import { Scaffold } from "@lowes/helix-global-css";
+import { Scaffold } from '@lowes/helix-global-css';
 import Icon from '@lowes/icon';
+import { ProductDetailStyle, DetailsTitle } from './ProductInformationProductDetails.style';
+import { ProductDetails } from '../../locales/en-us';
 
 const ProductInformationProductDetails = (props) => {
     const [open, isOpen] = useState(false);
     const clickHandler = () => {
         isOpen(!open);
-    }
+    };
     return (
         <ThemeProvider theme={{ scaffold: Scaffold }}>
             <>
-                <Accordion title={ProductDetails}>
+                <Accordion title={ ProductDetails }>
 
                     {props.details.map((detail, index) => (
-                        <div key={index}>
+                        <div key={ index }>
                             <p>{detail.details}</p>
                             <DetailsTitle>{detail.materialText}</DetailsTitle>
                             <p>{detail.materialDetails}</p>
@@ -50,7 +50,7 @@ const ProductInformationProductDetails = (props) => {
                 }
             </ProductDetailStyle> */}
         </ThemeProvider>
-    )
-}
+    );
+};
 
 export default ProductInformationProductDetails;

@@ -1,20 +1,18 @@
 import React from 'react';
 import Button from '@lowes/button';
-import { Whishlist } from '../../locales/en-us';
 // import { IoIosBookmark } from 'react-icons/io';
 import { ThemeProvider } from 'styled-components';
-import { Scaffold } from "@lowes/helix-global-css";
+import { Scaffold } from '@lowes/helix-global-css';
 import Icon from '@lowes/icon';
-// import { WishlistButton } from './ProductInformationWhishlist.style';
+import { Whishlist } from '../../locales/en-us';
+import { WishlistButton } from './ProductInformationWhishlist.style';
 
-const ProductInformationWhishlist = () => {
-    return (
+const ProductInformationWhishlist = () => (
         <ThemeProvider theme={{ scaffold: Scaffold }}>
             <Button secondary> {Whishlist}
-                <span><Icon name="heart-outline" size="iconSize1x" color="themeSenary" /></span>
+                <WishlistButton><Icon name="heart-outline" size="iconSize1x" color="themeSenary" /></WishlistButton>
             </Button>
         </ThemeProvider>
-    )
-}
+);
 
 export default ProductInformationWhishlist;

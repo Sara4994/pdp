@@ -12,9 +12,8 @@ export const Swatchbutton = styled.button`
     flex: 0 0 auto;
     position: relative;
 
-    &:hover
-    &:.active {
-        background-color: red;
+    &:hover {
+        background-color: #ccc;
         
     }
-`
+`;

@@ -8,15 +8,15 @@ export const BestOfferStyles = styled.div`
             content: '+';
         }
     }
-`
+`;
 export const OffersTitle = styled.p`
         font-weight: bold;
-`
+`;
 
-export const AccordionOuter = styled.div `
+export const AccordionOuter = styled.div`
     .test {
         div {
             padding: 0;
         }
     }
-`
+`;

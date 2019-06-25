@@ -1,9 +1,8 @@
 import React from 'react';
-import {ProductPrice} from './ProductInformationProductPrice.style'
-import { Currency,disclaimer } from '../../locales/en-us';
+import { ProductPrice } from './ProductInformationProductPrice.style';
+import { Currency, disclaimer } from '../../locales/en-us';
 
-const ProductInformationProductPrice = (props) => {
-    return (
+const ProductInformationProductPrice = props => (
         <ProductPrice>
             <div>
                 <span className="price">{Currency}{props.price}</span>
@@ -12,7 +11,6 @@ const ProductInformationProductPrice = (props) => {
             </div>
             <p className="disclaimer">{disclaimer}</p>
         </ProductPrice>
-    )
-}
+);
 
 export default ProductInformationProductPrice;

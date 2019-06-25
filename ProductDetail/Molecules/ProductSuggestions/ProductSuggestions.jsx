@@ -1,12 +1,10 @@
 import React from 'react';
 
-const ProductSuggestions = () => {
-    return (
+const ProductSuggestions = () => (
         <>
-            
+
         </>
-  
-    )
-}
+
+);
 
 export default ProductSuggestions;
